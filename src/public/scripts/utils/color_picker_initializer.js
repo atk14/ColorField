@@ -23,7 +23,7 @@ window.UTILS.color_picker_initializer.init = function() {
 
 		pickr = Pickr.create( {
 			el: "#" + placeholder_id,
-			theme: "classic", // or "monolith", or "nano"
+			theme: $input.data("theme"), // "classic", "monolith", or "nano"
 			default: $input.val() === "" ? null : $input.val(),
 
 			// Swatches: $input.data( "swatches" ),

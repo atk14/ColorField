@@ -76,6 +76,7 @@ In a form:
           "label" => "Background color",
           "initial" => "#4455ff",
           "opacity" => false,
+          "theme" => "classic", // "classic", "monolith" or "nano"
           "swatches" => ["#4455ff", "#3366ee", "#223388","rgb(122,233,77)"]
         ]));
       }

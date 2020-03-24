@@ -18,13 +18,15 @@ class ColorField extends RegexField{
 			}
 		}
 		
-
 		$options += array(
+			"theme" => "classic", // "classic", "monolith" or "nano"
 			"opacity" => false,
 			"swatches" => $swatches_default, // ["rgba(244, 67, 54, 1)","rgba(233, 30, 99, 0.95)","rgba(156, 39, 176, 0.9)"]
 			"error_message" => _('Enter a valid color code (%formats%)')
 		);
 
+		$theme = $options["theme"];
+		unset($options["theme"]);
 		$this->opacity = $options["opacity"];
 		unset($options["opacity"]);
 		$this->swatches = (array)$options["swatches"];
@@ -41,8 +43,10 @@ class ColorField extends RegexField{
 		parent::__construct("/^(#$hex{6}|rgb\($num,$num,$num\)|#$hex{8}|rgba\($num,$num,$num,$num\))$/",$options);
 
 		$this->widget->attrs["data-handler"] = "color-picker";
-		$this->widget->attrs["data-swatches"] = json_encode(array_values($this->swatches));
+
+		$this->widget->attrs["data-theme"] = $theme;
 		$this->widget->attrs["data-opacity"] = $this->opacity ? "true" : "false";
+		$this->widget->attrs["data-swatches"] = json_encode(array_values($this->swatches));
 	}
 
 	function clean($value){
