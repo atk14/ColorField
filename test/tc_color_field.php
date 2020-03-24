@@ -58,7 +58,7 @@ class TcColorField extends TcBase {
 			"initial" => "#FFFFFF",
 			"theme" => "nano",
 			"opacity" => true,
-			"swatches" => ["#112233","rgb(0,10,20)"]
+			"swatches" => array("#112233","rgb(0,10,20)")
 		)));
 		$c2 = $form->get_field("c2");
 		$this->assertEquals('<input data-handler="color-picker" data-theme="nano" data-opacity="true" data-swatches="[&quot;#112233&quot;,&quot;rgb(0,10,20)&quot;]" type="text" name="c2" class="text form-control" id="id_c2" value="#FFFFFF" />',$c2->as_widget());
