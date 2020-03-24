@@ -72,6 +72,6 @@ class ColorField extends RegexField{
 			}
 			$value = preg_replace('/,/',', ',$value); // "rgba(233,30,99,0.95)" -> "rgba(233, 30, 99, 0.95)"
 		}
-		return [$err,$value];
+		return array($err,$value);
 	}
 }
