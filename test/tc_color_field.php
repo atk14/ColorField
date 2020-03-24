@@ -45,6 +45,25 @@ class TcColorField extends TcBase {
 		$this->assertEquals("Enter a valid color code (in HEX or RGB format)",$err);
 	}
 
+	function test_widget(){
+		$form = new Atk14Form();
+
+		$c1 = $form->add_field("c1", new ColorField(array(
+		)));
+		$c1 = $form->get_field("c1");
+		$this->assertEquals('<input required="required" data-handler="color-picker" data-theme="classic" data-opacity="false" data-swatches="[]" type="text" name="c1" class="text form-control" id="id_c1" />',$c1->as_widget());
+
+		$c2 = $form->add_field("c2", new ColorField(array(
+			"required" => false,
+			"initial" => "#FFFFFF",
+			"theme" => "nano",
+			"opacity" => true,
+			"swatches" => ["#112233","rgb(0,10,20)"]
+		)));
+		$c2 = $form->get_field("c2");
+		$this->assertEquals('<input data-handler="color-picker" data-theme="nano" data-opacity="true" data-swatches="[&quot;#112233&quot;,&quot;rgb(0,10,20)&quot;]" type="text" name="c2" class="text form-control" id="id_c2" value="#FFFFFF" />',$c2->as_widget());
+	}
+
 	function _valid_colors($ary){
 		foreach($ary as $input => $result){
 			$value = $this->assertValid($input);
