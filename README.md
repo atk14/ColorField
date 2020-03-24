@@ -15,10 +15,11 @@ Just use the Composer:
 
 ### Integration with Pickr
 
-ColorField is meant to be integrated with a nice color picker called Pickr (see https://github.com/Simonwep/pickr).
+By default, ColorField renders ```<input type="text">``` in which values like ```#FFFFFF```, ```rgb(22,33,44)```, ```rgba(100,150,170,0.8)``` can be written. Nothing interesting...
+But ColorField is meant to be integrated with a nice color picker called Pickr (see https://github.com/Simonwep/pickr).
 
     npm install --save npm install @simonwep/pickr
-    ln -s ../../vendor/atk14/color-fields/src/public/scripts/utils/color_picker_initializer.js public/scripts/utils/
+    ln -s ../../../vendor/atk14/color-field/src/public/scripts/utils/color_picker_initializer.js public/scripts/utils/color_picker_initializer.js
 
 Now edit gulpfile-admin.js (or gulpfile.js):
 
@@ -51,7 +52,7 @@ Now edit gulpfile-admin.js (or gulpfile.js):
       // ...
     ];
 
-Now place into public/admin/scripts/application.js somewhere in ADMIN.common.init:
+Now place the following line into function common.init() in public/admin/scripts/application.js (or public/scripts/application.js).
 
     UTILS.color_picker_initializer.init();
   
