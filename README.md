@@ -82,6 +82,23 @@ In a form:
       }
     }
 
+Swatches
+--------
+
+If the configuration file config/theme/colors.json or config/theme/colors.yml exists, ColorField will use the colors from this file as default swatches. The contents of the file might look like this:
+
+    {
+      "primary": "#e75a76",
+      "secondary": "#6c757d",
+      "success": "#32a555",
+      "info": "#17a2b8",
+      "warning": "#ccb11b",
+      "danger": "#e70000",
+      "light": "#f5f5f5",
+      "dark": "#343a40",
+      "brand": "#307fa5"
+    }
+
 Testing
 -------
 
